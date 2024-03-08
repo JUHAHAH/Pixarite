@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import AuthSession from '@/AuthSession';
+
 import './globals.css';
 
 const myFont = localFont({
@@ -18,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={myFont.className}>{children}</body>
+      <body className={myFont.className}>
+        <AuthSession>{children}</AuthSession>
+      </body>
     </html>
   );
 }
