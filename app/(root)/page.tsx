@@ -9,6 +9,8 @@ import {
 export default function Home() {
   return (
     <div>
+      <SignInButton />
+      <SignedIn />
       <UserButton />
     </div>
   );
