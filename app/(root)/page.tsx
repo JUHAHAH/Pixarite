@@ -1,16 +1,9 @@
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from '@clerk/nextjs';
+import UserProfile from '@/components/shared/UserProfile';
 
 export default function Home() {
   return (
     <div>
-      <SignInButton />
-      <UserButton afterSignOutUrl="/" />
+      <UserProfile />
     </div>
   );
 }
