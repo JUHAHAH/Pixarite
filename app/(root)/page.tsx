@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <SignInButton />
-      <UserButton />
+      <UserButton afterSignOutUrl="/" />
     </div>
   );
 }
