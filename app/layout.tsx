@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const myFont = localFont({
   src: './NeoDunggeunmoPro-Regular.woff2',
@@ -17,8 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={myFont.className}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={myFont.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }
