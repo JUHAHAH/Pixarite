@@ -12,10 +12,3 @@ model User {
   externalId  String @unique 
   attributes  Json?
 }
-
-
-
-
-
-
-
