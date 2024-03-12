@@ -56,7 +56,7 @@ export async function POST(req: Request) {
 
   if (eventType === 'user.created' || eventType === 'user.updated') {
     const { id, ...attributes } = evt.data;
-    console.log(evt.data.username);
+    console.log(evt.data.email_addresses);
   }
 
   // Add hooked data to mongoDB
