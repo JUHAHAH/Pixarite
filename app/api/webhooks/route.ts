@@ -60,7 +60,7 @@ export async function POST(req: Request) {
     await prisma.user.create({
       data: {
         id: id,
-        email: attributes.email_addresses[1].email_address,
+        attributes: attributes as Record<string, any>,
       },
     });
   }
