@@ -56,10 +56,14 @@ export async function POST(req: Request) {
 
   if (eventType === 'user.created' || eventType === 'user.updated') {
     const { id, ...attributes } = evt.data;
-    console.log(evt.data.email_addresses.toString);
-  }
 
-  // Add hooked data to mongoDB
+    await prisma.user.create({
+      data: {
+        id: id,
+        email: attributes.email_addresses[1].email_address,
+      },
+    });
+  }
 
   return new Response('', { status: 200 });
 }
