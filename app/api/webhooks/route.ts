@@ -1,6 +1,7 @@
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
 import { WebhookEvent } from '@clerk/nextjs/server';
+import { PrismaClient } from '@prisma/client';
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -51,9 +52,14 @@ export async function POST(req: Request) {
   // Get the ID and type
   const { id } = evt.data;
   const eventType = evt.type;
+  const prisma = new PrismaClient();
 
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log('Webhook body:', body);
+  if (eventType === 'user.created' || eventType === 'user.updated') {
+    const { id, ...attributes } = evt.data;
+    console.log(id);
+  }
+
+  // Add hooked data to mongoDB
 
   return new Response('', { status: 200 });
 }
