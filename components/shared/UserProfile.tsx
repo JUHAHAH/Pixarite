@@ -1,15 +1,8 @@
-import Image from 'next/image';
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
 const UserProfile = () => {
   return (
-    <div>
+    <div className="">
       <SignedIn>
         <UserButton />
       </SignedIn>

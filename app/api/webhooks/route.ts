@@ -1,6 +1,6 @@
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
-import { EmailAddress, WebhookEvent, clerkClient } from '@clerk/nextjs/server';
+import { WebhookEvent, clerkClient } from '@clerk/nextjs/server';
 import { PrismaClient } from '@prisma/client';
 
 export async function POST(req: Request) {
