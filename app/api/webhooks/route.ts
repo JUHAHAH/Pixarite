@@ -67,7 +67,7 @@ export async function POST(req: Request) {
       where: { externalId: id as string },
       create: {
         externalId: id as string,
-        username: username != null ? username : undefined,
+        username: username != null ? username : 'You Need Identitiy',
         first_name: first_name,
         last_name: last_name,
         email_addresses: email_addresses[1].email_address as string,
