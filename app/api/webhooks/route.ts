@@ -63,6 +63,8 @@ export async function POST(req: Request) {
     } = evt.data;
 
     const username = (await clerkClient.users.getUser(id)).username;
+    const emailAddress = (await clerkClient.users.getUser(id)).emailAddresses[1]
+      .emailAddress;
 
     await prisma.user.upsert({
       where: { externalId: id as string, username: null! },
@@ -71,14 +73,14 @@ export async function POST(req: Request) {
         username: username,
         first_name: first_name,
         last_name: last_name,
-        emailAddress: primary_email_address_id,
+        emailAddress: emailAddress,
         attributes: JSON.stringify(attributes),
       },
       update: {
         username: username,
         first_name: first_name,
         last_name: last_name,
-        emailAddress: primary_email_address_id,
+        emailAddress: emailAddress,
         attributes: JSON.stringify(attributes),
       },
     });
