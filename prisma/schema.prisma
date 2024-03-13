@@ -8,7 +8,19 @@ datasource db {
 }
 
 model User {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  externalId  String @unique 
-  attributes  Json?
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  externalId      String @unique 
+  username        String
+  first_name      String
+  last_name       String
+  email_addresses String
+  attributes      Json?
+  posts           Post[]
+}
+
+model Post {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  title  String
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
 }

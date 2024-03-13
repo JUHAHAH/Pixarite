@@ -50,20 +50,34 @@ export async function POST(req: Request) {
   }
 
   // Get the ID and type
-  const { id } = evt.data;
   const eventType = evt.type;
   const prisma = new PrismaClient();
 
   if (eventType === 'user.created' || eventType === 'user.updated') {
-    const { id, ...attributes } = evt.data;
+    const {
+      id,
+      username,
+      first_name,
+      last_name,
+      email_addresses,
+      ...attributes
+    } = evt.data;
 
     await prisma.user.upsert({
       where: { externalId: id as string },
       create: {
         externalId: id as string,
+        username: username as string,
+        first_name: first_name as string,
+        last_name: last_name as string,
+        email_addresses: email_addresses[1].email_address as string,
         attributes: JSON.stringify(attributes),
       },
       update: {
+        username: username as string,
+        first_name: first_name as string,
+        last_name: last_name as string,
+        email_addresses: email_addresses[1].email_address as string,
         attributes: JSON.stringify(attributes),
       },
     });
