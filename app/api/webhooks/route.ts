@@ -68,7 +68,7 @@ export async function POST(req: Request) {
     ).emailAddress;
 
     await prisma.user.upsert({
-      where: { externalId: id as string, username: null! },
+      where: { externalId: id as string },
       create: {
         externalId: id as string,
         username: username as string,
