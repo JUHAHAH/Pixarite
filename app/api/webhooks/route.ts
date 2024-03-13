@@ -1,6 +1,6 @@
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
-import { WebhookEvent } from '@clerk/nextjs/server';
+import { WebhookEvent, clerkClient } from '@clerk/nextjs/server';
 import { Prisma, PrismaClient } from '@prisma/client';
 
 export async function POST(req: Request) {
@@ -54,14 +54,12 @@ export async function POST(req: Request) {
   const prisma = new PrismaClient();
 
   if (eventType === 'user.created' || eventType === 'user.updated') {
-    const {
-      id,
-      username,
-      first_name,
-      last_name,
-      email_addresses,
-      ...attributes
-    } = evt.data;
+    const { id, first_name, last_name, email_addresses, ...attributes } =
+      evt.data;
+
+    const username = (await clerkClient.users.getUser(id)).username;
+    const emailAddress = (await clerkClient.users.getUser(id)).emailAddresses[1]
+      .emailAddress;
 
     await prisma.user.upsert({
       where: { externalId: id as string, username: null! },
@@ -70,14 +68,14 @@ export async function POST(req: Request) {
         username: username,
         first_name: first_name,
         last_name: last_name,
-        email_addresses: JSON.stringify(email_addresses[1].email_address),
+        emailAddress: emailAddress,
         attributes: JSON.stringify(attributes),
       },
       update: {
         username: username,
         first_name: first_name,
         last_name: last_name,
-        email_addresses: JSON.stringify(email_addresses[1].email_address),
+        emailAddress: emailAddress,
         attributes: JSON.stringify(attributes),
       },
     });
