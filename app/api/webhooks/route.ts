@@ -54,12 +54,15 @@ export async function POST(req: Request) {
   const prisma = new PrismaClient();
 
   if (eventType === 'user.created' || eventType === 'user.updated') {
-    const { id, first_name, last_name, email_addresses, ...attributes } =
-      evt.data;
+    const {
+      id,
+      first_name,
+      last_name,
+      primary_email_address_id,
+      ...attributes
+    } = evt.data;
 
     const username = (await clerkClient.users.getUser(id)).username;
-    const emailAddress = (await clerkClient.users.getUser(id)).emailAddresses[1]
-      .emailAddress;
 
     await prisma.user.upsert({
       where: { externalId: id as string, username: null! },
@@ -68,14 +71,14 @@ export async function POST(req: Request) {
         username: username,
         first_name: first_name,
         last_name: last_name,
-        emailAddress: emailAddress as string,
+        emailAddress: primary_email_address_id,
         attributes: JSON.stringify(attributes),
       },
       update: {
         username: username,
         first_name: first_name,
         last_name: last_name,
-        emailAddress: emailAddress as string,
+        emailAddress: primary_email_address_id,
         attributes: JSON.stringify(attributes),
       },
     });
