@@ -64,10 +64,10 @@ export async function POST(req: Request) {
     } = evt.data;
 
     await prisma.user.upsert({
-      where: { externalId: id as string },
+      where: { externalId: id as string, username: null! },
       create: {
         externalId: id as string,
-        username: username != null ? username : 'You Need Identitiy',
+        username: username,
         first_name: first_name,
         last_name: last_name,
         email_addresses: email_addresses[1].email_address as string,
