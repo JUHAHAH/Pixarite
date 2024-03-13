@@ -78,7 +78,7 @@ export async function POST(req: Request) {
         attributes: JSON.stringify(attributes),
       },
       update: {
-        username: username,
+        username: username as string,
         first_name: first_name,
         last_name: last_name,
         emailAddress: emailAddress,
