@@ -1,7 +1,7 @@
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
-import { WebhookEvent, clerkClient } from '@clerk/nextjs/server';
-import { Prisma, PrismaClient } from '@prisma/client';
+import { EmailAddress, WebhookEvent, clerkClient } from '@clerk/nextjs/server';
+import { PrismaClient } from '@prisma/client';
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
@@ -63,8 +63,9 @@ export async function POST(req: Request) {
     } = evt.data;
 
     const username = (await clerkClient.users.getUser(id)).username;
-    const emailAddress = (await clerkClient.users.getUser(id)).emailAddresses[1]
-      .emailAddress;
+    const emailAddress = (
+      await clerkClient.emailAddresses.getEmailAddress(primary_email_address_id)
+    ).emailAddress;
 
     await prisma.user.upsert({
       where: { externalId: id as string, username: null! },
