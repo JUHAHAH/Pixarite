@@ -13,7 +13,7 @@ model User {
   username        String?
   first_name      String?
   last_name       String?
-  email_addresses String?
+  emailAddress    String?
   attributes      Json?
   posts           Post[]
 }
