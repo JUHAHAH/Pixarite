@@ -70,14 +70,14 @@ export async function POST(req: Request) {
         username: username,
         first_name: first_name,
         last_name: last_name,
-        email_addresses: email_addresses[1].email_address as string,
+        email_addresses: JSON.stringify(email_addresses[1].email_address),
         attributes: JSON.stringify(attributes),
       },
       update: {
         username: username,
         first_name: first_name,
         last_name: last_name,
-        email_addresses: email_addresses[1].email_address as string,
+        email_addresses: JSON.stringify(email_addresses[1].email_address),
         attributes: JSON.stringify(attributes),
       },
     });
