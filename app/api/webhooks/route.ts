@@ -87,5 +87,13 @@ export async function POST(req: Request) {
     });
   }
 
+  if (eventType === 'user.deleted') {
+    const { id } = evt.data;
+
+    await prisma.user.delete({
+      where: { externalId: id as string },
+    });
+  }
+
   return new Response('', { status: 200 });
 }
