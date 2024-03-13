@@ -67,7 +67,7 @@ export async function POST(req: Request) {
       where: { externalId: id as string },
       create: {
         externalId: id as string,
-        username: username,
+        username: JSON.stringify(username),
         first_name: first_name as string,
         last_name: last_name as string,
         email_addresses: email_addresses[1].email_address as string,
