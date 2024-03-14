@@ -1,17 +1,27 @@
 import MobileNavigation from './MobileNavigation';
 import MobileUserProfile from './MobileUserProfile';
+import Navigation from './Navigation';
 import UserProfile from './UserProfile';
 
 const Header = () => {
   return (
-    <div className="flex justify-between md:justify-center">
+    <div className="flex justify-between items-center h-14 bg-red-300">
       <div className="flex">
         <MobileNavigation />
         --ICON###--
-        <a href="/"> Pixarite</a>
+        <a href="/" className="flex px-2">
+          {' '}
+          Pixarite
+        </a>
       </div>
 
-      <MobileUserProfile />
+      <div className="flex">
+        <Navigation />
+
+        <div className="md:hidden">
+          <MobileUserProfile />
+        </div>
+      </div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ import UserProfile from './UserProfile';
 
 const MobileUserProfile = () => {
   return (
-    <div className="md:hidden">
+    <div>
       <Sheet>
         <SheetTrigger>Open</SheetTrigger>
         <SheetContent side={'right'}>

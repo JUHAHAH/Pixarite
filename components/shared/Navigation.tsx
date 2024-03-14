@@ -3,26 +3,27 @@
 import { headerLinks } from '@/constants';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-import { SheetClose } from '../ui/sheet';
 import Link from 'next/link';
+import { UserButton } from '@clerk/nextjs';
 
 const Navigation = () => {
   const pathname = usePathname();
   return (
-    <nav>
-      <ul>
-        {headerLinks.map((nav) => {
-          const isActive = pathname === nav.route;
-          return (
-            <li key={nav.route}>
-              <SheetClose asChild key={nav.route}>
+    <div className="max-md:hidden">
+      <nav>
+        <ul className="flex">
+          {headerLinks.map((nav) => {
+            const isActive = pathname === nav.route;
+            return (
+              <li key={nav.route} className="flex items-center px-3">
                 <Link href={nav.route}>{nav.label}</Link>
-              </SheetClose>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+              </li>
+            );
+          })}
+          <UserButton />
+        </ul>
+      </nav>
+    </div>
   );
 };
 
