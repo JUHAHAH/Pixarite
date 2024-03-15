@@ -4,7 +4,7 @@ import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 
 const myFont = localFont({
-  src: './NeoDunggeunmoPro-Regular.woff2',
+  src: '../public/fonts/CODELight.otf',
 });
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" className="scroll-smooth">
         <body className={myFont.className}>{children}</body>
       </html>
     </ClerkProvider>

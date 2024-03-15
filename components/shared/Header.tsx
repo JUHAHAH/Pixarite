@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import MobileNavigation from './MobileNavigation';
 import MobileUserProfile from './MobileUserProfile';
 import Navigation from './Navigation';
@@ -5,21 +6,24 @@ import UserProfile from './UserProfile';
 
 const Header = () => {
   return (
-    <div className="flex justify-between items-center h-14 bg-red-300">
-      <div className="flex">
-        <MobileNavigation />
-        --ICON###--
-        <a href="/" className="flex px-2">
-          {' '}
-          Pixarite
-        </a>
-      </div>
+    <div>
+      <div className="h-24 bg-primary"></div>
 
-      <div className="flex">
-        <Navigation />
+      <div className="flex justify-between items-center h-24 fixed top-0 w-full bg-gradient-to-b from-primary from-60% pb-8 z-50">
+        <div className="flex items-center">
+          <MobileNavigation />
+          <a href="/" className="flex items-center px-2">
+            <Image src={'/images/Logo.png'} alt="Logo" width={50} height={50} />
+            <h1>Pixarite</h1>
+          </a>
+        </div>
 
-        <div className="md:hidden">
-          <MobileUserProfile />
+        <div className="flex">
+          <Navigation />
+
+          <div className="md:hidden">
+            <MobileUserProfile />
+          </div>
         </div>
       </div>
     </div>
