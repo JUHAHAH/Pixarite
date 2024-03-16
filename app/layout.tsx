@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className="scroll-smooth">
+      <html lang="en" className="scroll-smooth bg-primary">
         <body className={myFont.className}>{children}</body>
       </html>
     </ClerkProvider>
