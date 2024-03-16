@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       <div className="flex overflow-hidden justify-center md:justify-start">
-        <div className="absolute w-80 h-96 text-7xl p-8 md:left-60">
+        <div className="absolute w-80 h-96 text-7xl p-8 md:ml-52">
           Add Custom Text Here
         </div>
         <div className="h-96 w-72 border-2 border-red-500 md:z-10">
