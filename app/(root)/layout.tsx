@@ -10,9 +10,9 @@ export default function RootLayout({
     <div lang="en" className="flex flex-col text-primarytxt bg-primary">
       <Header />
       <main className="flex w-full">
-        <div className="md:w-40 border-green-300 border-2"></div>
+        <div className="md:w-1/6"></div>
         {children}
-        <div className="md:w-40 border-green-300 border-2"></div>
+        <div className="md:w-1/6"></div>
       </main>
       <Footer />
     </div>
