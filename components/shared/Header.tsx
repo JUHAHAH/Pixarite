@@ -10,8 +10,8 @@ const Header = () => {
         <div className="flex items-center">
           <MobileNavigation />
           <a href="/" className="flex items-center px-3">
-            <Image src={'/images/Logo.png'} alt="Logo" width={50} height={50} />
-            <h1 className="text-xl">Pixarite</h1>
+            <Image src={'/images/Logo.png'} alt="Logo" width={38} height={38} />
+            <h1 className="text-2xl">Pixarite</h1>
           </a>
         </div>
 
