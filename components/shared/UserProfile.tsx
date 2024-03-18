@@ -2,7 +2,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
 const UserProfile = () => {
   return (
-    <div className="">
+    <div>
       <SignedIn>
         <UserButton />
       </SignedIn>

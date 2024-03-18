@@ -1,11 +1,7 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+import { code, urbanist } from './fonts';
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
-
-const myFont = localFont({
-  src: '../public/fonts/CODELight.otf',
-});
 
 export const metadata: Metadata = {
   title: 'Pixarite',
@@ -19,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className="scroll-smooth bg-primary">
-        <body className={myFont.className}>{children}</body>
+      <html lang="en" className="scroll-smooth bg-primary font-light">
+        <body className={urbanist.className}>{children}</body>
       </html>
     </ClerkProvider>
   );
