@@ -5,7 +5,7 @@ import { code } from '../fonts';
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full">
+    <div>
       <div className={code.className}>
         <div className="flex overflow-hidden justify-center md:justify-start">
           <div className="absolute w-80 h-96 font-extralight text-7xl p-8 md:ml-52">
@@ -17,10 +17,20 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex h-96"></div>
-      <div className="flex h-96"></div>
-      <div className="flex h-96"></div>
-      <div className="flex h-96"></div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl">sdfasfdsafasdfasdfasdfs</div>
+      <div className="text-3xl h-[1000px]">sdfasfdsafasdfasdfasdfs</div>
     </div>
   );
 }

@@ -9,9 +9,9 @@ export default function RootLayout({
   return (
     <div lang="en" className="flex flex-col text-primarytxt bg-primary">
       <Header />
-      <main className="flex w-full">
+      <main className="flex w-full justify-between">
         <div className="md:w-1/6"></div>
-        {children}
+        <div className="min-h-screen">{children}</div>
         <div className="md:w-1/6"></div>
       </main>
       <Footer />

@@ -15,6 +15,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.66",
+    "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cors": "^2.8.5",
