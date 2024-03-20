@@ -1,10 +1,10 @@
 export const headerLinks = [
   {
-    label: 'Post Practice',
-    route: '/post',
+    label: 'Home',
+    route: '/',
   },
   {
-    label: 'My Profile',
-    route: '/profile',
+    label: 'Post Practice',
+    route: '/post',
   },
 ];

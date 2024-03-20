@@ -7,7 +7,7 @@ const HeaderNew = () => {
   return (
     <div>
       <div className="fixed top-0 z-50 w-full">
-        <div className="top-0 h-24 backdrop-blur-sm gradient-mask-b-30 bg-cover">
+        <div className="top-0 h-24 backdrop-blur-sm gradient-mask-b-40 bg-cover">
           <div className="flex justify-between items-center bg-gradient-to-b from-primary text-xl p-2 pb-10">
             <div className="flex items-center">
               <MobileNavigation />

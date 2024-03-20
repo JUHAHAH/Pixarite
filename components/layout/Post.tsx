@@ -3,15 +3,15 @@ import { Key } from 'react';
 
 export default async function Post() {
   const { data } = await axios.get('http://localhost:3000/api/posts');
-  console.log(data.data);
+  console.log(data);
 
   return (
     <div>
-      {data.data.map((post: { id: Key; title: string; content: any }) => {
+      {data.getPost.map((post: { id: Key; title: string; content: any }) => {
         return (
-          <div key={post.id}>
-            <p key={post.id}>{post.title}</p>
-            <p key={post.id}>{post.content}</p>
+          <div key={post.id} className="m-5">
+            <p key={post.id}>제목: {post.title}</p>
+            <p key={post.id}>내용: {post.content}</p>
           </div>
         );
       })}

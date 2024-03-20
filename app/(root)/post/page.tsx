@@ -1,3 +1,4 @@
+import CreatePost from '@/components/layout/CreatePost';
 import Post from '@/components/layout/Post';
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <div className="flex items-center flex-col w-full">
       <h4>POST</h4>
       <Post />
+      <CreatePost />
     </div>
   );
 }
