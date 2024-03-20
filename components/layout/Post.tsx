@@ -1,8 +1,9 @@
+import { rootUrl } from '@/constants';
 import axios from 'axios';
 import { Key } from 'react';
 
 export default async function Post() {
-  const { data } = await axios.get('http://localhost:3000/api/posts');
+  const { data } = await axios.get(rootUrl + '/api/posts');
   console.log(data);
 
   return (

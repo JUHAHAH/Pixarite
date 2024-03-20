@@ -8,3 +8,5 @@ export const headerLinks = [
     route: '/post',
   },
 ];
+
+export const rootUrl = 'https://pixarite.vercel.app';
