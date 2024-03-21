@@ -2,7 +2,7 @@ import { authMiddleware } from '@clerk/nextjs';
 
 export default authMiddleware({
   // Routes that are public
-  publicRoutes: ['/api/webhooks(.*)', '/api(.*)'],
+  publicRoutes: ['/api/webhooks(.*)', '/', '/(.*)'],
   // Ignored routes
   ignoredRoutes: ['/haha'],
   // Rest url reamin protected

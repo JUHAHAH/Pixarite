@@ -6,6 +6,7 @@ export default function Home() {
     <div className="flex items-center flex-col w-full">
       <h4>POST</h4>
       <Post />
+      <CreatePost />
     </div>
   );
 }

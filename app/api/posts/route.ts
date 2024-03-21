@@ -6,11 +6,16 @@ export async function GET() {
   return Response.json({ getPost });
 }
 
-export async function POST() {
+export async function POST(post: {
+  title: string;
+  content: string;
+  id: string;
+}) {
   const postPost = await prisma.post.create({
     data: {
-      title: '샘플 타이틀',
-      content: '샘플 내용',
+      title: post.title,
+      content: post.content,
+      userId: post.id,
     },
   });
 }

@@ -3,7 +3,6 @@ import { Key } from 'react';
 
 export default async function Post() {
   const { data } = await axios.get(process.env.ROOT_URL + '/api/posts');
-  console.log(data);
 
   return (
     <div>

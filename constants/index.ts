@@ -9,4 +9,3 @@ export const headerLinks = [
   },
 ];
 
-export const rootUrl = 'https://pixarite.vercel.app';

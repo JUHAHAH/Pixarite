@@ -20,7 +20,6 @@ const Navigation = () => {
               </li>
             );
           })}
-          <UserButton />
         </ul>
       </nav>
     </div>

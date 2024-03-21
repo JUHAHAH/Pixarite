@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { code, urbanist } from './fonts';
+import { urbanist } from './fonts';
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 

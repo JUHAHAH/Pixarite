@@ -1,9 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import MobileNavigation from './MobileNavigation';
 import Navigation from './Navigation';
-import MobileUserProfile from './MobileUserProfile';
+import { SignInButton, SignedOut, UserButton } from '@clerk/nextjs';
 
-const HeaderNew = () => {
+const Header = () => {
   return (
     <div>
       <div className="fixed top-0 z-50 w-full">
@@ -24,10 +26,10 @@ const HeaderNew = () => {
 
             <div className="flex">
               <Navigation />
-
-              <div className="flex md:hidden items-center justify-center">
-                <MobileUserProfile />
-              </div>
+              <UserButton />
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
             </div>
           </div>
         </div>
@@ -38,4 +40,4 @@ const HeaderNew = () => {
   );
 };
 
-export default HeaderNew;
+export default Header;
