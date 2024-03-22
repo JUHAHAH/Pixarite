@@ -1,8 +1,9 @@
 import prisma from '@/lib/database/prisma';
 import { auth } from '@clerk/nextjs';
 import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextRequest, res: NextResponse) {
   const { userId } = auth();
 
   if (req.method === 'GET') {
@@ -10,6 +11,16 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const getPost = await prisma.post.findMany();
 
     return Response.json({ getPost });
+  } else if (req.method === 'POST') {
+    // POST
+    await prisma.post.create({
+      data: {
+        title: 'value1',
+        content: 'value2',
+        userId: userId as string,
+      },
+    });
+    return Response.json('done');
   }
 }
 
