@@ -10,16 +10,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const getPost = await prisma.post.findMany();
 
     return Response.json({ getPost });
-  } else if (req.method === 'POST') {
-    // POST
-    await prisma.post.create({
-      data: {
-        title: 'value1',
-        content: 'value2',
-        userId: userId as string,
-      },
-    });
-    return Response.json('done');
   }
 }
 
