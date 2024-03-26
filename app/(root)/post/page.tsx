@@ -1,4 +1,4 @@
-import CreatePost from './_components/CreatePost';
+import PostCreate from './_components/PostCreate';
 import PostView from './_components/PostView';
 
 export default function Home() {
@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex items-center flex-col w-full">
       <h4>POST</h4>
       <PostView />
-      <CreatePost />
+      <PostCreate />
     </div>
   );
 }

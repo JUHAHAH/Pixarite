@@ -1,14 +1,14 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import axios from 'axios';
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 
-export default function CreatePost() {
-  // await axios.post(process.env.ROOT_URL + '/api/posts', {
-  //   data: { title: 'title here', content: 'content here' },
-  // });
-
-  const [formData, setFormData] = useState({ title: '', content: '' });
+export default function PostCreate() {
+  const [formData, setFormData] = useState({
+    title: '',
+    content: '',
+  });
 
   const onChangeHandler = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value as string });
@@ -20,7 +20,7 @@ export default function CreatePost() {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <form onSubmit={onSubmitHandler}>
         <div className="flex flex-col">
           <input
@@ -30,14 +30,13 @@ export default function CreatePost() {
             className="m-1 text-slate-950"
             placeholder=" 제목"
           />
-          <input
-            type="text"
+          <textarea
             name="content"
             onChange={onChangeHandler}
             className="m-1 text-slate-950"
             placeholder=" 내용"
           />
-          <button type="submit">입력 완료</button>
+          <Button>입력</Button>
         </div>
       </form>
     </div>
