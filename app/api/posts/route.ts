@@ -1,27 +1,20 @@
 import prisma from '@/lib/database/prisma';
-import { currentUser } from '@clerk/nextjs';
-import { getAuth } from '@clerk/nextjs/server';
 import { NextRequest, NextResponse } from 'next/server';
 
 async function handler(req: NextRequest, res: NextResponse) {
-  const user = await currentUser();
-  let userId = null;
   if (req.method === 'GET') {
     // GET
     const getPost = await prisma.post.findMany();
 
     return Response.json({ getPost });
   } else if (req.method === 'POST') {
+    const data = await req.json();
     // POST
-
-    if (user) userId = user.id;
-    else userId = '';
-
     await prisma.post.create({
       data: {
-        title: 'value1',
-        content: 'value2',
-        userId: userId,
+        title: data.data.title,
+        content: data.data.content,
+        userId: 'data.authorId',
       },
     });
     return Response.json('done');
