@@ -5,11 +5,9 @@ import { FormEvent, useState } from 'react';
 
 export default function CreatePost() {
   const [data, setData] = useState({
-    data: {
-      title: '',
-      content: '',
-      authorId: 'user_2dcWjOqbjTnVbf7iovUOTLCZlto',
-    },
+    title: '',
+    content: '',
+    authorId: 'user_2dcWjOqbjTnVbf7iovUOTLCZlto',
   });
 
   const onChangeHandler = (e: any) => {
