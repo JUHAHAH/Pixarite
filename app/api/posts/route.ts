@@ -8,7 +8,7 @@ async function handler(req: NextRequest, res: NextResponse) {
 
     return Response.json({ getPost });
   } else if (req.method === 'POST') {
-    const data = await req.json();
+    const { data } = await req.json();
 
     // POST
     await prisma.post.create({
