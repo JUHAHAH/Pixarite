@@ -1,15 +1,7 @@
-import { currentUserInfo } from '@/lib/database/validUser';
 import axios from 'axios';
 
 export default async function CreatePost() {
-  const id = currentUserInfo();
-  await axios.post(process.env.ROOT_URL + '/api/posts', {
-    data: {
-      title: '',
-      content: '',
-      authorId: await id,
-    },
-  });
+  await axios.post(process.env.ROOT_URL + '/api/posts');
   return (
     <div>
       <div>

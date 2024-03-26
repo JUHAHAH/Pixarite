@@ -6,7 +6,7 @@ export default async function Post() {
 
   return (
     <div>
-      {data.getPost.map((post: { id: any; title: string; content: any }) => {
+      {data.getPost.map((post: { id: Key; title: string; content: any }) => {
         return (
           <div key={post.id} className="m-5">
             <p key={post.id}>제목: {post.title}</p>
