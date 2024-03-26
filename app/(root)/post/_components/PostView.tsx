@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Key } from 'react';
 
-export default async function Post() {
+export default async function PostView() {
   const { data } = await axios.get(process.env.ROOT_URL + '/api/posts');
 
   return (
