@@ -1,4 +1,5 @@
 import prisma from '@/lib/database/prisma';
+import { currentUserInfo } from '@/lib/database/validUser';
 import { NextRequest, NextResponse } from 'next/server';
 
 async function handler(req: NextRequest, res: NextResponse) {
@@ -8,9 +9,11 @@ async function handler(req: NextRequest, res: NextResponse) {
 
     return Response.json({ getPost });
   } else if (req.method === 'POST') {
-    const data = await req.json();
+    const { data } = await req.json();
+    console.log(data);
 
     // POST
+
     await prisma.post.create({
       data: {
         title: data.title,
