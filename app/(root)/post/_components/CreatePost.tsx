@@ -4,13 +4,24 @@ import axios from 'axios';
 import { FormEvent, useState } from 'react';
 
 export default function CreatePost() {
-  axios.post(process.env.ROOT_URL + '/api/posts', {
-    data: { title: 'asdad', content: 'asdasdasasda' },
-  });
+  // await axios.post(process.env.ROOT_URL + '/api/posts', {
+  //   data: { title: 'title here', content: 'content here' },
+  // });
+
+  const [formData, setFormData] = useState({ title: '', content: '' });
+
+  const onChangeHandler = (e: any) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value as string });
+  };
+
+  const onSubmitHandler = async (e: any) => {
+    console.log(formData);
+    axios.post('/api/posts', formData);
+  };
 
   return (
     <div>
-      {/* <form onSubmit={onSubmitHandler}>
+      <form onSubmit={onSubmitHandler}>
         <div className="flex flex-col">
           <input
             type="text"
@@ -28,7 +39,7 @@ export default function CreatePost() {
           />
           <button type="submit">입력 완료</button>
         </div>
-      </form> */}
+      </form>
     </div>
   );
 }

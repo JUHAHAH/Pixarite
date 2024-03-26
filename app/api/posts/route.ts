@@ -8,13 +8,13 @@ async function handler(req: NextRequest, res: NextResponse) {
 
     return Response.json({ getPost });
   } else if (req.method === 'POST') {
-    const data = await req.json();
     // POST
+    const data = await req.json();
     await prisma.post.create({
       data: {
-        title: data.data.title,
-        content: data.data.content,
-        userId: 'data.authorId',
+        title: data.title,
+        content: data.content,
+        userId: data.userId,
       },
     });
     return Response.json('done');
