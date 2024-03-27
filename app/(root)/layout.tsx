@@ -11,7 +11,7 @@ export default function RootLayout({
       <Header />
       <main className="flex w-full justify-between">
         <div className="md:w-1/6"></div>
-        <div className="min-h-screen">{children}</div>
+        <div className="flex min-h-screen">{children}</div>
         <div className="md:w-1/6"></div>
       </main>
       <Footer />

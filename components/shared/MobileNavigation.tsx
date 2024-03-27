@@ -9,16 +9,20 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { Button } from '@/components/ui/button';
 import { headerLinks } from '@/constants';
+import { Menu } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const MobileNavigation = () => {
   const pathname = usePathname();
   return (
-    <div className="md:hidden">
+    <div className="md:hidden flex items-center justify-center">
       <Sheet>
-        <SheetTrigger>Open</SheetTrigger>
+        <SheetTrigger>
+          <Menu className="transition duration-300 w-9 h-9 p-1 rounded-full hover:shadow-[0px_0px_8px_5px_rgba(247,247,253,0.3)]" />
+        </SheetTrigger>
         <SheetContent side={'left'}>
           <SheetHeader>
             <SheetTitle>Are you absolutely sure?</SheetTitle>
