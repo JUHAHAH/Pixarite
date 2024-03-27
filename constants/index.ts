@@ -7,5 +7,8 @@ export const headerLinks = [
     label: 'Post Practice',
     route: '/post',
   },
+  {
+    label: 'About Me',
+    route: '/about-me',
+  },
 ];
-

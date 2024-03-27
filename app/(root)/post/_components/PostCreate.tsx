@@ -1,44 +1,48 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import axios from 'axios';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function PostCreate() {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     title: '',
     content: '',
   });
 
   const onChangeHandler = (e: any) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value as string });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const onSubmitHandler = async (e: any) => {
-    console.log(formData);
-    axios.post('/api/posts', formData);
+    router.refresh();
+    axios.post('/api/posts', formData).then((res) => {
+      (document.getElementById('title') as HTMLInputElement).value = '';
+      (document.getElementById('content') as HTMLInputElement).value = '';
+    });
   };
 
   return (
     <div className="w-full">
-      <form onSubmit={onSubmitHandler}>
-        <div className="flex flex-col">
-          <input
-            type="text"
-            name="title"
-            onChange={onChangeHandler}
-            className="m-1 text-slate-950"
-            placeholder=" 제목"
-          />
-          <textarea
-            name="content"
-            onChange={onChangeHandler}
-            className="m-1 text-slate-950"
-            placeholder=" 내용"
-          />
-          <Button>입력</Button>
-        </div>
-      </form>
+      <div className="flex flex-col">
+        <input
+          type="text"
+          id="title"
+          onChange={onChangeHandler}
+          className="m-1 text-slate-950"
+          placeholder=" 제목"
+        />
+        <textarea
+          name="content"
+          id="content"
+          onChange={onChangeHandler}
+          className="m-1 text-slate-950"
+          placeholder=" 내용"
+        />
+        <button onClick={onSubmitHandler}>입력</button>
+      </div>
     </div>
   );
 }
