@@ -1,5 +1,4 @@
 import prisma from '@/lib/database/prisma';
-import { currentUserInfo } from '@/lib/database/authUser';
 import { NextRequest, NextResponse } from 'next/server';
 async function handler(req: NextRequest, res: NextResponse) {
   if (req.method === 'GET') {
